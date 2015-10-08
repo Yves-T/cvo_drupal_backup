@@ -1,6 +1,6 @@
-#Backup drupal website
+#Backup drupal website scripts
 
-##backup drupal script
+##backupdrupal script
 
 ###Prerequisites
 
@@ -9,18 +9,18 @@
 * A folder named CVO in your drop box folder
 * Your drupal sites must be in a directory named drupal inside your htdocs folder
 
-**Important ! The database name and the name of the drupal site folder in htdocs must be the same**
+**Important ! The database name and the name of the drupal site folder in htdocs must be the same !!**
 
 ###What it does
 
-This script will create a .sql dump of a drupal site and compress it. Then it will be moved to your dropbox folder. After that the site folder in htdocs/drupal will be zipped and also be moved to the dropbox folder.
+This script will create a .sql dump of a drupal site and compress it. Then it will be moved to your dropbox folder. After that the site folder in **htdocs/drupal** will be zipped and also be moved to the dropbox folder.
 
 ###Usage
 
 * Clone the repo
 * Install the script in your ~/bin folder.
-* Make it executable with chmod u+x ./backupdrupal
-* Execute with ./backupdrupal <sitename>
+* Make it executable with **chmod u+x ./backupdrupal**
+* Execute with **./backupdrupal <sitename>**
 
 ###Example usage
 
