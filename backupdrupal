@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#CHeck if site name argument is supplied
+if [[ $# -eq 0 ]] ; then
+    echo 'Give site name as argument'
+    echo 'Shut down script execution....'
+    exit 1
+fi
+
+echo dump database in sql file and compress
+# Dump database in sql file and compress
+/Applications/MAMP/Library/bin/mysqldump -v -u root -p $1 | gzip > ~/$1.sql.gz
+printf "\nMove sql file to dropbox CVO folder"
+# Move the file to dropbox CVO folder
+mv -iv ~/$1.sql.gz ~/Dropbox/CVO/
+printf "\nCompress drupal site"
+#Archive drupal site and compress archived file
+printf "\nMoving file to dropbox CVO folder"
+zip -r ~/$1.zip /Applications/MAMP/htdocs/drupal/$1
+mv -iv ~/$1.zip ~/Dropbox/CVO/
