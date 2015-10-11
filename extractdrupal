@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#CHeck if site name argument is supplied
+if [[ $# -eq 0 ]] ; then
+    echo 'Give site name as argument'
+    echo 'Shut down script execution....'
+    exit 1
+fi
+
+echo copy drupal sql file
+cp -iv ~/Dropbox/CVO/$1.sql.gz ~/
+echo extract gz file
+gunzip  ~/$1.sql.gz
+echo create $1 database....
+echo mysql password for user root ?
+/Applications/MAMP/Library/bin/mysql -u root -p  -e "CREATE DATABASE IF NOT EXISTS $1;"
+echo creating drupal $1 tables....
+echo mysql password for user root ?
+/Applications/MAMP/Library/bin/mysql -u root -p  $1 < ~/$1.sql
+rm ~/$1.sql
+echo copy drupal site to drupal/htdocs and extract it....
+cp -iv ~/Dropbox/CVO/$1.zip /Applications/MAMP/htdocs/drupal/
+unzip /Applications/MAMP/htdocs/drupal/$1.zip -d /Applications/MAMP/htdocs/drupal/
+echo Finished extract drupal site....
+rm -iv /Applications/MAMP/htdocs/drupal/$1.zip
