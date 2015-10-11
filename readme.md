@@ -1,5 +1,7 @@
 #Backup drupal website scripts
 
+This repo contains scripts for handling the backup process of a drupal website.
+
 ##backupdrupal script
 
 ###Prerequisites
