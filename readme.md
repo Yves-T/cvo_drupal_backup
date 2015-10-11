@@ -33,3 +33,28 @@ Present on the computer
 		./backupdrupal tweedewebsite
 
 This will create a **tweedewebsite.sql.gz** and a **tweedewebsite.zip** file in your dropbox/ CVO folder.
+
+##extractdrupal script
+
+###Prerequisites
+
+* Dropbox installed and running
+* Mamp installed and running
+* A folder named CVO in your drop box folder containing 2 files created with the backupdrupal script in the ~/Dropbox/CVO folder: **<drupal_site_name>.sql.gz** and **<drupal_site_name>.zip**
+
+###What it does
+
+This script will restore your drupal site by creating a MySQL database ( if it doesn't exist already ) and then an extract and import operation of the **<drupal_site_name>.sql.gz** file in the MySQL database. After that it will unzip the **<drupal_site_name>.zip** in htdocs/drupal.
+
+###Usage
+
+* Clone the repo
+* Install the script in your ~/bin folder.
+* Make it executable with **chmod u+x ./extractdrupal**
+* Execute with **./extractdrupal <sitename>**
+
+###Example usage
+
+	./extractdrupal tweedewebsite
+
+This will restore your tweedewebsite in htdocs/drupal.
