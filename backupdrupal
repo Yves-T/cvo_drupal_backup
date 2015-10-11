@@ -16,5 +16,6 @@ mv -iv ~/$1.sql.gz ~/Dropbox/CVO/
 printf "\nCompress drupal site"
 #Archive drupal site and compress archived file
 printf "\nMoving file to dropbox CVO folder"
-zip -r ~/$1.zip /Applications/MAMP/htdocs/drupal/$1
-mv -iv ~/$1.zip ~/Dropbox/CVO/
+cd /Applications/MAMP/htdocs/drupal
+zip -r $1.zip $1
+mv -iv $1.zip ~/Dropbox/CVO/
